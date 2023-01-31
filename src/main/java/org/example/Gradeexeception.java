@@ -50,7 +50,7 @@ public class Gradeexeception {
     {
         Gradeexeception a = new Gradeexeception();
         Scanner inp =new Scanner(System.in);
-        System.out.println("Do you want to update your gpa yes->1/no->2 ?");
+        l.info("Do you want to update your gpa yes->1/no->2 ?");
 
         int choice=inp.nextInt();
         if(choice==1)
