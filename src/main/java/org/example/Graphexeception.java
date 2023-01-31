@@ -3,7 +3,7 @@ package org.example;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-class Graph1 implements Cloneable
+class Graph1 implements cloneable
 {
     Integer x;
     Integer y;
