@@ -130,13 +130,13 @@ public class Shapeexeception {
                 throw new InvalidChoiceException("you have entered invalid choice");
             }
             else {
-                System.out.println("correctly entered");
+                l.info("correctly entered");
             }
         }
         catch (InvalidChoiceException ex)
         {
-            System.out.println("Caught the exception");
-            System.out.println("Exception occured: " + ex);
+            l.info("Caught the exception");
+            l.info("Exception occured: " + ex);
         }
 
         Shapeexeception b = new Shapeexeception(choice);
