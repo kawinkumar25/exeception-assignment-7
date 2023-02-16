@@ -3,9 +3,6 @@ package org.example;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-
-
-
 class Credit implements cloneable
 {
     String name;
@@ -22,49 +19,48 @@ class Credit implements cloneable
     {
         return cardno.equals(validcardno);
     }
-    Credit cd()
+    Credit cloning()
     {
         try
         {
-            return (Credit) super.clone();
+          return (Credit) super.clone();
         }
         catch (CloneNotSupportedException e)
         {
-            l.info("cloned");
+            l.info("cloned error");
             return this;
         }
     }
 }
 
-public class Creditcardexeception
+class Creditcard
 {
     public static void main(String[]args)
     {
-
-        Scanner i = new Scanner(System.in);
+        Scanner inpobject = new Scanner(System.in);
         Logger l = Logger.getLogger("kawin");
 
         l.info("enter name");
-        String name = i.next();
+        String name = inpobject.next();
         l.info("enter card no");
-        Long cardno = i.nextLong();
+        Long cardno = inpobject.nextLong();
         l.info("enter exp date ");
-        String expdate = i.next();
+        String expdate = inpobject.next();
 
         Long validcardno=1234567890L;
 
-        Credit ob1 = new Credit(name,cardno,expdate);
-        Credit ob2 = ob1.cd();
+        Credit obj1 = new Credit(name,cardno,expdate);
+        Credit obj2 = obj1.cloning();
 
-        if(ob2.equalss(validcardno))
+        if(obj2.equalss(validcardno))
         {
-            l.info("both card are same");
+            l.info("both are same");
         }
         else
         {
-            l.info("both card are not same");
+            l.info("both are not same");
         }
-        i.close();
+        inpobject.close();
 
 
     }
