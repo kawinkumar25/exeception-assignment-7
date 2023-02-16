@@ -3,26 +3,26 @@ package org.example;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-class Graph1 implements cloneable
+class Graphclone implements Cloneable
 {
     Integer x;
     Integer y;
     Logger l = Logger.getLogger("kawin");
-    Graph1(Integer a,Integer b)
+    Graphclone(Integer x,Integer y)
     {
-        x=a;
-        y=b;
+        this.x=x;
+        this.y=y;
     }
     boolean equals()
     {
         return x.equals(y);
     }
 
-    Graph1 gp()
+    Graphclone gp()
     {
         try
         {
-            return (Graph1) super.clone();
+            return (Graphclone) super.clone();
         }
         catch (CloneNotSupportedException e)
         {
@@ -32,20 +32,20 @@ class Graph1 implements cloneable
     }
 }
 
-public class Graphexeception
+class Graphexeception
 {
     public static void main(String[] args)
     {
         Logger l = Logger.getLogger("kawin");
-        Scanner inp = new Scanner(System.in);
+        Scanner inpobject = new Scanner(System.in);
         l.info("enter x");
-        Integer x = inp.nextInt();
+        Integer x = inpobject.nextInt();
         l.info("enter y");
-        Integer y = inp.nextInt();
+        Integer y = inpobject.nextInt();
 
-        Graph1 ob1 = new Graph1(x, y);
-        Graph1 ob2 = ob1.gp();
-        if(ob2.equals())
+        Graphclone obj1 = new Graphclone(x, y);
+        Graphclone obj2 = obj1.gp();
+        if(obj2.equals())
         {
             l.info("x and y are same");
         }
