@@ -3,7 +3,7 @@ package org.example;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-class Credit implements cloneable
+class Credit implements Cloneable
 {
     String name;
     Long cardno;
@@ -23,7 +23,7 @@ class Credit implements cloneable
     {
         try
         {
-          return (Credit) super.clone();
+            return (Credit) super.clone();
         }
         catch (CloneNotSupportedException e)
         {
@@ -33,7 +33,7 @@ class Credit implements cloneable
     }
 }
 
-class Creditcard
+class Creditcardexeception
 {
     public static void main(String[]args)
     {
