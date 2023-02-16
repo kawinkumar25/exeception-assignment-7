@@ -1,12 +1,9 @@
 package org.example;
 
-
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 class InvalidChoiceException  extends Exception
 {
@@ -15,9 +12,40 @@ class InvalidChoiceException  extends Exception
         super(str);
     }
 }
+
+
 public class Shapeexeception {
 
+    public static void main (String[] args)
+    {
 
+        Scanner inputobj =new Scanner(System.in);
+        Logger l = Logger.getLogger("kawin");
+        l.info(" 1 Triangle \n 2 Rectangle \n 3 circle ");
+        int choice =inputobj.nextInt();
+        try
+        {
+            if(choice >= 4)
+            {
+                throw new InvalidChoiceException("you have entered invalid choice");
+            }
+            else {
+                l.info("correctly entered");
+            }
+        }
+        catch (InvalidChoiceException ex)
+        {
+            l.info("Caught the exception");
+            l.info("Exception occured: " + ex);
+        }
+        Shapemethods shapeobj = new Shapemethods(choice);
+        shapeobj.perimeter(choice);
+        shapeobj.area(choice);
+    }
+}
+
+class Shapemethods
+{
     double height;
     double base;
 
@@ -26,45 +54,43 @@ public class Shapeexeception {
 
     double radius;
 
-    Scanner dep =new Scanner(System.in);
+    Scanner inputobj =new Scanner(System.in);
     Logger l = Logger.getLogger("kawin");
-    Shapeexeception(int choice)
+    Shapemethods(int choice)
     {
         switch (choice) {
             case 1 -> {
 
-                try
+                try 
                 {
                     l.info("Enter height:");
-                    height = dep.nextDouble();
+                    height = inputobj.nextDouble();
                     l.info("Enter base:");
-                    base = dep.nextDouble();
-                }
-                catch (InputMismatchException ex) {
+                    base = inputobj.nextDouble();
+                } 
+                catch (InputMismatchException ex) 
+                {
                     height = 0;
-                    base = 0 ;
+                    base = 0;
                     l.info(String.valueOf(ex));
                 }
-
-
-
             }
             case 2 -> {
 
 
                 l.info("Enter length:");
-                length = dep.nextDouble();
+                length = inputobj.nextDouble();
 
 
                 l.info("Enter breadth:");
-                breadth = dep.nextDouble();
+                breadth = inputobj.nextDouble();
             }
 
 
             case 3 -> {
 
                 l.info("Enter radius:");
-                radius = dep.nextDouble();
+                radius = inputobj.nextDouble();
             }
 
             default ->
@@ -79,9 +105,9 @@ public class Shapeexeception {
         if(choice==1)
         {
             l.info("enter side 1");
-            double s1=dep.nextDouble();
+            double s1=inputobj.nextDouble();
             l.info("enter side 2");
-            double s2=dep.nextDouble();
+            double s2=inputobj.nextDouble();
             peri=(s1+s2)+base;
             l.log(Level.INFO, ()->"perimeter of Triangle is "+peri);
         }
@@ -117,32 +143,6 @@ public class Shapeexeception {
         }
 
     }
-    public static void main (String[] args) {
 
-        Scanner inp =new Scanner(System.in);
-        Logger l = Logger.getLogger("kawin");
-        l.info(" 1 Triangle \n 2 Rectangle \n 3 circle ");
-        int choice =inp.nextInt();
-        try
-        {
-            if(choice >= 4)
-            {
-                throw new InvalidChoiceException("you have entered invalid choice");
-            }
-            else {
-                l.info("correctly entered");
-            }
-        }
-        catch (InvalidChoiceException ex)
-        {
-            l.info("Caught the exception");
-            l.info("Exception occured: " + ex);
-        }
-
-        Shapeexeception b = new Shapeexeception(choice);
-
-        b.perimeter(choice);
-        b.area(choice);
-    }
 
 }
