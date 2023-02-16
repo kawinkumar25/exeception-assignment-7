@@ -3,7 +3,7 @@ package org.example;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-class Credit implements Cloneable
+class Credit implements cloneable
 {
     String name;
     Long cardno;
